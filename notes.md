@@ -2,6 +2,13 @@
 
 [My startup - Simon](https://simon.cs260.click)
 
+## Project ideas 
+
+- Movie reviews
+- Store Front 
+- Talk Manager
+
+
 ## Helpful links
 
 - [Course instruction](https://github.com/webprogramming260)
