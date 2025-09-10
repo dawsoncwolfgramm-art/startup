@@ -1,8 +1,8 @@
-# Your startup name here
+# Vote Hot Topics
 
 [My Notes](notes.md)
 
-A brief description of the application here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+A brief description of the application here. An app that provides fun conversation topics for any situation, perfect for parties, road trips, or just keeping things interesting. Voting for what you prefer more than other things in Hot Topics.”
 
 
 > [!NOTE]
@@ -26,13 +26,13 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Ever been stuck in awkward silence? My app gives you instant conversation starters, perfect for parties, road trips, or just breaking the ice. In seconds, you’ll have everyone laughing, debating, and connecting!
 
 ### Design
 
 ![Design image](placeholder.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The app lets you log into your account so it can learn what topics you like and show you more of them. You can choose a genre of topics you want to discuss, then start the conversation. Everyone can join in either in person or online and share their thoughts.
 
 ```mermaid
 sequenceDiagram
@@ -43,20 +43,21 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Personalized Topics
+- Group Mode
+- Trending Topics Feed
+- Save Favorites
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - I will use HTML to build the structure of the app.
+- **CSS** - I will Style the app with CSS to keep it entertaining
+- **React** - I will use React to create the pages and update content quickly.
+- **Service** - I will use a service to get and send data for the app.
+- **DB/Login** - I will use a database and login so users can save accounts and preferences.
+- **WebSocket** - I will use WebSocket so people can join and talk in real time.
 
 ## 🚀 AWS deliverable
 
