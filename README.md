@@ -46,9 +46,17 @@ The app lets you log into your account so it can learn what topics you like and 
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor User1
+    actor User2
+    actor User3
+    User1->>Server: Request Hot Take
+    Server-->>User1: AI Generated Topic
+    User1->>Server: Vote Agree
+    Server-->>User2: Update results
+    Server-->>User3: Update results
+    User2->>Server: Vote Disagree
+    Server-->>User1: Update results
+    Server-->>User3: Update results
 ```
 
 ### Key features
