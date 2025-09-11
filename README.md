@@ -26,11 +26,21 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Ever been stuck in awkward silence? My app gives you instant conversation starters, perfect for parties, road trips, or just breaking the ice. In seconds, you’ll have everyone laughing, debating, and connecting!
+Ever been stuck in awkward silence? My app gives you instant conversation starters, perfect for parties, road trips, or just breaking the ice. In seconds, you’ll have everyone laughing, debating, and connecting! It’s easy to use, fun for all ages, and makes talking to people way less stressful. Whether you’re with friends or meeting someone new, you’ll always have something to say.
 
 ### Design
 
+#### Home Design
 ![Design image](placeholder.png)
+
+#### Topics
+![Topics Design image]()
+
+#### AI Generated Hot Takes
+![AI Generated Hot Takes Design image]()
+
+#### About Me
+![About Me Design image]()
 
 The app lets you log into your account so it can learn what topics you like and show you more of them. You can choose a genre of topics you want to discuss, then start the conversation. Everyone can join in either in person or online and share their thoughts.
 
@@ -47,6 +57,9 @@ sequenceDiagram
 - Group Mode
 - Trending Topics Feed
 - Save Favorites
+- Global access
+- New and Creative
+- Personable
 
 ### Technologies
 
