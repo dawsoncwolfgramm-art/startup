@@ -31,16 +31,16 @@ Ever been stuck in awkward silence? My app gives you instant conversation starte
 ### Design
 
 #### Home Design
-![Design image](placeholder.png)
+![Home Design image](Screenshot 2025-09-10 220319.png)
 
 #### Topics
-![Topics Design image]()
+![Topics Design image](Screenshot_2025-09-10_220326.png)
 
 #### AI Generated Hot Takes
-![AI Generated Hot Takes Design image]()
+![AI Generated Hot Takes Design image](Screenshot_2025-09-10_220332.png)
 
 #### About Me
-![About Me Design image]()
+![About Me Design image](Screenshot_2025-09-10_220337.png)
 
 The app lets you log into your account so it can learn what topics you like and show you more of them. You can choose a genre of topics you want to discuss, then start the conversation. Everyone can join in either in person or online and share their thoughts.
 
