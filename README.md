@@ -31,7 +31,7 @@ Ever been stuck in awkward silence? My app gives you instant conversation starte
 ### Design
 
 #### Home Design
-![Home Design image](HotTakesHomePage.png)
+![Home Design image]([HotTakesHomePage.png](https://drive.google.com/file/d/1TRKcKlTZdh0i4N02KiO32WO1E8DmBQiU/view))
 
 #### Topics
 ![Topics Design image](HotTakesTopics.png)
