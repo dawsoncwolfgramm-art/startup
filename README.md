@@ -73,12 +73,12 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - I will use HTML to build the structure of the app.
-- **CSS** - I will Style the app with CSS to keep it entertaining
-- **React** - I will use React to create the pages and update content quickly.
-- **Service** - I will use a service to get and send data for the app.
-- **DB/Login** - I will use a database and login so users can save accounts and preferences.
-- **WebSocket** - I will use WebSocket so people can join and talk in real time.
+- **HTML** - I will use HTML to build the structure of the app and create 4 different pages that the application will have.
+- **CSS** - I will style the app with CSS to keep it entertaining.
+- **React** - I will use React to create the pages and update content quickly. I will also have a function to display a user login page. 
+- **Service** - I will use a service to get and send agreement and disagreement on the voting application.
+- **DB/Login** - I will use a database and login so users can save accounts and preferences while adding to favorites.
+- **WebSocket** - I will use WebSocket so people can join and talk in real time, and update the agreement and disagreement on the voting application to your account and other people's account.
 
 ## 🚀 AWS deliverable
 
