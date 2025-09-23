@@ -6,7 +6,7 @@
 
 - Movie reviews
 - Store Front 
-- Talk Manager
+- Talk Manager  
 
 
 ## Helpful links
