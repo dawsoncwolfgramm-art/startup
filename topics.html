@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <h1>Simon<sup>&reg;</sup></h1>
+      <h1>Vote Hot Takes<sup>&reg;</sup></h1>
       <nav>
         <menu>
           <li><a href="index.html">Home</a></li>
@@ -24,28 +24,30 @@
 
     <main>
     <form method="get" action="play.html">
+    <div class="topics">
       <table>
         <thead>
           <tr>
-            <th style="font-size: 30px; ">Hot Topics</th>
-            <th><button style="font-size: 20px; background-color: aliceblue;">Favorites</button></th>
+            <th">Hot Topics</th>
+            <th><button>Favorites</button></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><button style="background-color: aliceblue">Celebrities</button></td>
-            <td><button style="background-color: aliceblue">Politics</button></td>
+            <td><button>Celebrities</button></td>
+            <td><button>Politics</button></td>
             </tr>
           <tr>
-            <td><button style="background-color: aliceblue">Food & Drinks</button></td>
-            <td><button style="background-color: aliceblue">Lifestyle</button></td>
+            <td><button>Food & Drinks</button></td>
+            <td><button>Lifestyle</button></td>
           </tr>
           <tr>
-            <td><button style="background-color: aliceblue">Sports</button></td>
-            <td><button style="background-color: aliceblue">Cultures</button></td>
+            <td><button>Sports</button></td>
+            <td><button>Cultures</button></td>
           </tr>
         </tbody>
       </table>
+    </div>
     </form>
     </main>
 
@@ -57,3 +59,15 @@
     </footer>
   </body>
 </html>
+
+<style>
+topics {
+    align-center;
+}
+</style>
+
+<script>
+    function sayGoodbye() {
+        alert('Goodbye');
+    }
+</script>
