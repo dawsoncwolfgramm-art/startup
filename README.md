@@ -90,15 +90,15 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **HTML pages** - I did not complete this part of the deliverable.
-- [x] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [x] **Links** - I did not complete this part of the deliverable.
-- [x] **Text** - I did not complete this part of the deliverable.
-- [x] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [x] **Images** - I did not complete this part of the deliverable.
-- [x] **Login placeholder** - I did not complete this part of the deliverable.
-- [x] **DB data placeholder** - I did not complete this part of the deliverable.
-- [x] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - I made 5 differnt pages that include the index, topics of what to vote on, actual play page, scores where you can see who voted for who, and the about page.
+- [x] **Proper HTML element usage** - I followed and did put proper HTML element into each page with html, body, main, table, thead, tr, etc.
+- [x] **Links** - I made each page accessable to any other page while still keeping it organized. Each page has a link to every other page. 
+- [x] **Text** - I have text boxed explaining about me and also about the website and how to use it. 
+- [x] **3rd party API placeholder** - I did made a spot where the ChatGPT could be placed so that it could send in responsed to my questions. 
+- [x] **Images** - In the about page I replaced the placeholder.jpg with my own jpg image to show more about me. 
+- [x] **Login placeholder** - I did placed the login at the front of the page to make a way that people can login and save what they have already said and their topics about past votes.
+- [x] **DB data placeholder** - I placed placeholders through my project showing that in multiple different areas people will be able to comment and be able to go and save what they have done. These are the DB data placeholders. 
+- [x] **WebSocket placeholder** - I made a place at the play button where they will be able to comment on why they would choose that if they were not in the same place. This will allow them to talk in real time. 
 
 ## 🚀 CSS deliverable
 
