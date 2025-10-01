@@ -58,18 +58,72 @@
 
     <main>
       <h1>Welcome to Vote a Hot Take</h1>
-      <form method="get" action="play.html">
-        <div class="email">
-          <span>@</span>
-          <input type="text" placeholder="your@email.com" />
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card p-4">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs mb-3" id="authTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab">Sign Up</button>
+          </li>
+        </ul>
+        
+        <div class="tab-content" id="authTabContent">
+          <!-- Login Form -->
+          <div class="tab-pane fade show active" id="login" role="tabpanel">
+            <form>
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="loginEmail" placeholder="Enter email">
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <a href="#">Forgot password?</a>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+          </div>
+          
+          <!-- Sign Up Form -->
+          <div class="tab-pane fade" id="signup" role="tabpanel">
+            <h4 class="mb-3">Create Account ✨</h4>
+            <form>
+              <div class="mb-3">
+                <label for="signupName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="signupName" placeholder="John Doe">
+              </div>
+              <div class="mb-3">
+                <label for="signupEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="signupEmail" placeholder="Enter email">
+              </div>
+              <div class="mb-3">
+                <label for="signupPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+              </div>
+              <div class="mb-3">
+                <label for="signupConfirm" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="signupConfirm" placeholder="Confirm password">
+              </div>
+              <button type="submit" class="btn btn-success w-100">Sign Up</button>
+            </form>
+          </div>
         </div>
-        <div>
-          <span>🔒</span>
-          <input type="password" placeholder="password" />
-        </div>
-        <button id="loginButton"type="submit">Login</button>
-        <button type="submit">Create</button>
-      </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
         <p> this will be added in the database</p>  
       <h2>Vote Your Hot Take?</h2>
       <form method="get" action="play.html">
