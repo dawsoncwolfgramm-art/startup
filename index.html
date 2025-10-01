@@ -14,8 +14,9 @@
     crossorigin="anonymous"
     >
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="index.css">
+
     
   </head>
   <body>
@@ -24,8 +25,7 @@
       <h1>Vote Hot Takes<sup>&reg;</sup></h1>
 
       <!-- Navigation elements -->
-      <nav>
-        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+      <!-- <nav>
         <ul class="menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="topics.html">Topics</a></li>
@@ -33,6 +33,23 @@
           <li><a href="scores.html">Scores</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
+      </nav> -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary nav-lang">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Vote Hot Takes</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link" href="topics.html">Topics</a>
+              <a class="nav-link" href="play.html">Play</a>
+              <a class="nav-link" href="scores.html">Scores</a>
+              <a class="nav-link" href="about.html">About</a>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
