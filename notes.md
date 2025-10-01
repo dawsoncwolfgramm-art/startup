@@ -9,6 +9,19 @@
 - Talk Manager  
 
 
+## What technologies can do 
+
+- ML structure part
+- basic understanding on what it does.
+
+  examples (Voter)
+- HTML
+- CSS
+- React
+- Service
+- DB/Login
+- WebSocket
+
 ## Helpful links
 
 - [Course instruction](https://github.com/webprogramming260)

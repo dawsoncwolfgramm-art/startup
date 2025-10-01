@@ -1,8 +1,8 @@
-# Your startup name here
+# Vote Hot Takes
 
 [My Notes](notes.md)
 
-A brief description of the application here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+A brief description of the application here. An app that provides fun conversation topics for any situation, perfect for parties, road trips, or just keeping things interesting. Voting for what you prefer more than other things in Hot Topics.”
 
 
 > [!NOTE]
@@ -18,65 +18,87 @@ A brief description of the application here. Lorem ipsum dolor sit amet, consect
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Ever been stuck in awkward silence? My app gives you instant conversation starters, perfect for parties, road trips, or just breaking the ice. In seconds, you’ll have everyone laughing, debating, and connecting! It’s easy to use, fun for all ages, and makes talking to people way less stressful. Whether you’re with friends or meeting someone new, you’ll always have something to say.
 
 ### Design
 
-![Design image](placeholder.png)
+#### Home Design
+![Home Design image](https://drive.google.com/uc?export=view&id=1TRKcKlTZdh0i4N02KiO32WO1E8DmBQiU)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+#### Topics
+![Topics Design image](https://drive.google.com/uc?export=view&id=1N_bCAdhbZzk2pOfQ-H7fOukZ1o1UkaAq)
+
+#### AI Generated Hot Takes
+![AI Generated Hot Takes Design image](https://drive.google.com/uc?export=view&id=1QP7rUvqu7AcoTbqLD6nbkv83I7nMoChL)
+
+#### About Me
+![About Me Design image](https://drive.google.com/uc?export=view&id=1tblYIs2XmaX6BWwn4HHYm-9Sv27_XeYX)
+
+The app lets you log into your account so it can learn what topics you like and show you more of them. You can choose a genre of topics you want to discuss, then start the conversation. Everyone can join in either in person or online and share their thoughts.
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor User1
+    actor User2
+    actor User3
+    User1->>Server: Request Hot Take
+    Server-->>User1: AI Generated Topic
+    User1->>Server: Vote Agree
+    Server-->>User2: Update results
+    Server-->>User3: Update results
+    User2->>Server: Vote Disagree
+    Server-->>User1: Update results
+    Server-->>User3: Update results
 ```
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Personalized Topics
+- Group Mode
+- Trending Topics Feed
+- Save Favorites
+- Global access
+- New and Creative
+- Personable
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - I will use HTML to build the structure of the app and create 4 different pages that the application will have.
+- **CSS** - I will style the app with CSS to keep it entertaining.
+- **React** - I will use React to create the pages and update content quickly. I will also have a function to display a user login page. 
+- **Service** - I will use a service to get and send agreement and disagreement on the voting application.
+- **DB/Login** - I will use a database and login so users can save accounts and preferences while adding to favorites.
+- **WebSocket** - I will use WebSocket so people can join and talk in real time, and update the agreement and disagreement on the voting application to your account and other people's account.
 
 ## 🚀 AWS deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://votehottake.click).
 
 ## 🚀 HTML deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - I made 5 differnt pages that include the index, topics of what to vote on, actual play page, scores where you can see who voted for who, and the about page.
+- [x] **Proper HTML element usage** - I followed and did put proper HTML element into each page with html, body, main, table, thead, tr, etc.
+- [x] **Links** - I made each page accessable to any other page while still keeping it organized. Each page has a link to every other page. 
+- [x] **Text** - I have text boxed explaining about me and also about the website and how to use it. 
+- [x] **3rd party API placeholder** - I did made a spot where the ChatGPT could be placed so that it could send in responsed to my questions. 
+- [x] **Images** - In the about page I replaced the placeholder.jpg with my own jpg image to show more about me. 
+- [x] **Login placeholder** - I did placed the login at the front of the page to make a way that people can login and save what they have already said and their topics about past votes.
+- [x] **DB data placeholder** - I placed placeholders through my project showing that in multiple different areas people will be able to comment and be able to go and save what they have done. These are the DB data placeholders. 
+- [x] **WebSocket placeholder** - I made a place at the play button where they will be able to comment on why they would choose that if they were not in the same place. This will allow them to talk in real time. 
 
 ## 🚀 CSS deliverable
 
