@@ -39,3 +39,10 @@ h1 {
 .nav-list li a:hover {
   color: crimson;        /* hover effect */
 }
+
+td {
+  max-width: 40vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
