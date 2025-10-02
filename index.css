@@ -10,6 +10,10 @@ body {
   font-family: Arial, sans-serif;
 }
 
+footer {
+  flex: 0 30px;
+}
+
 h1 {
   color: darkblue;
   text-align: center;
@@ -34,4 +38,35 @@ h1 {
 
 .nav-list li a:hover {
   color: crimson;        /* hover effect */
+}
+
+.poll-card {
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  text-align: center;
+  background: #fff;
+}
+
+.poll-statement {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+  .btn-agree {
+  background-color: green;
+  color: white;
+  transition: transform 0.2s ease;
+}
+.btn-agree:hover {
+  transform: scale(1.05);
+}
+
+.btn-disagree {
+  background-color: red;
+  color: white;
+  transition: transform 0.2s ease;
+}
+.btn-disagree:hover {
+  transform: scale(1.05);
 }
