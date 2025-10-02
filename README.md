@@ -104,12 +104,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - I made the header, footer, and main content body a similar color and made it match each of the sections. Added some bootstrap to help make it more presentable. 
+- [x] **Navigation elements** - I I made it so that you can know what page is active and you can always access any other one so that you can get from page to page. 
+- [x] **Responsive to window resizing** - I made it so that when you go into a smaller window the links to each page is a drop down menu that can still guide you to a different page.
+- [x] **Application elements** - I made the body colorfull to make it more presentable and engaging where people would want to come and enjoy the game that I made. 
+- [x] **Application text content** - I centered each of the text to make it seem professional and on some of the text I made text boxes where I would apply the API elements.
+- [x] **Application images** - I made a cover to make it look nice around the image.
 
 ## 🚀 React part 1: Routing deliverable
 
