@@ -41,3 +41,8 @@ h1 {
 .nav-list li a:hover {
   color: crimson;        /* hover effect */
 }
+
+.share-simple .btn {
+  min-width: 100px;
+  font-weight: 500;
+}
