@@ -81,6 +81,9 @@
           <!-- Instagram -->
           <a href="https://www.instagram.com/"
             target="_blank" class="btn btn-danger">Instagram</a>
+
+          <!-- Copy Link -->
+          <button id="copyLinkBtn" class="btn btn-secondary">Copy Link</button>
         </div>
       </div>
 
@@ -109,22 +112,22 @@
         <button type="submit" class="btn btn-disagree btn-lg">DISAGREE</button>
       </form>
     </div>
-        <button>NEW PROMPT</button>
-      </div>
-      
+    <a class="btn btn-primary" href="#" role="button">New Prompt</a>
+    <input class="btn btn-primary" type="reset" value="Reset">
+
       <br />
 
-      <div>
-        LIVE FEED OF PERCENTAGE OF WHAT PROMPT THAT HAS BEEN GIVEN. 
-        HOW MANY PEOPLE HAVE SAID YES AND NO:
+      <h4 class="mt-4 poll-result">Live Poll Results</h4>
+      <div class="progress" style="height: 30px;">
+        <!-- Agree bar -->
+        <div class="progress-bar bg-success" role="progressbar" style="width: 50%">
+          50% Agree
+        </div>
+        <!-- Disagree bar -->
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 50%">
+          50% Disagree
+        </div>
       </div>
-      
-
-      <div class="Response Percentage">
-        50% YES : 50% NO
-      </div>
-      <p> this will be added in the database</p>  
-
 
       <br />
 

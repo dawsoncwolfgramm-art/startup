@@ -42,6 +42,10 @@ h1 {
   color: crimson;        /* hover effect */
 }
 
+.poll-result {
+    text-align: center;
+}
+
 .share-simple .btn {
   min-width: 100px;
   font-weight: 500;
