@@ -8,6 +8,8 @@ header {
 body {
   background-color: lightblue;
   font-family: Arial, sans-serif;
+  font-family:'Times New Roman', Times, serif;
+
 }
 
 footer {
@@ -38,4 +40,30 @@ h1 {
 
 .nav-list li a:hover {
   color: crimson;        /* hover effect */
+}
+
+.topic-card {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+  height: 120px; /* consistent box size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topic-card:hover {
+  border-color: #007bff;
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.topic-card a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+.container-lang {
+      font-family:'Times New Roman', Times, serif;
 }
