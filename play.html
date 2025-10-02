@@ -15,6 +15,10 @@
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="scr/app.css" />
     <link rel="stylesheet" href="play.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
     
   </head>
   <body>
@@ -32,14 +36,19 @@
           <li><a href="about.html">About</a></li>
         </menu>
       </nav> -->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary nav-lang">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Vote Hot Takes</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+          <!-- Hamburger button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
+          <!-- Collapsible menu -->
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav ml-auto">
               <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               <a class="nav-link" href="topics.html">Topics</a>
               <a class="nav-link" href="play.html">Play</a>
@@ -75,32 +84,31 @@
         </div>
       </div>
 
-      <div class="Catagory">
-        Catagory: Celebrities
-      </div>
-      <div class="Participants">
-        Participant:
-        <span class="Participants">Unknown</span>
-      </div>
+     <section class="row g-2 mb-3">
+      <div class="col-12 col-md-auto"><strong>Category:</strong> Celebrities</div>
+      <div class="col-12 col-md-auto"><strong>Participant:</strong> <span>Unknown</span></div>
+    </section>
+
+    <!-- Activity feed -->
+    <section class="mb-4">
       <ul class="notification">
-        PLACEHOLDER FOR WEBSOCKET DATA
-        <li class="Participant-name">Dawson has joined the Link</li>
-        <li class="Participant-name">Savanah has joined the Link</li>
+        <li class="Participant-name">Dawson has joined the link</li>
+        <li class="Participant-name">Savanah has joined the link</li>
         <li class="Participant-name">Dawson has voted YES!</li>
-        <li class="Participant-name">Shae has joined the Link</li>
+        <li class="Participant-name">Shae has joined the link</li>
       </ul>
+    </section>
 
-      <!-- More formatting with old style HTML -->
-      <br />
-
-      <div class="API-ChatGPT">
-        THIS IS WHERE MY API CHATGPT IS GOING TO GO. 
-        
+    <h2>Vote Your Hot Take?</h2>
+    <div class="poll-card p-4">
+      <div class="poll-statement mb-3">
+        Travis Kelce made Taylor Swift Famous?
       </div>
-
-      <br />
-
-      <div>
+      <form method="get" action="play.html" class="d-grid gap-3">
+        <button type="submit" class="btn btn-agree btn-lg">AGREE</button>
+        <button type="submit" class="btn btn-disagree btn-lg">DISAGREE</button>
+      </form>
+    </div>
         <button>NEW PROMPT</button>
       </div>
       
@@ -120,20 +128,27 @@
 
       <br />
 
-      <h5>Live chat where people can add why they chose their choice. </h5>
-      <div class="Live-Chat">
-        <ul class="notification">
-            <li class="Participant-name">I dont think that Taylor got any more famous than when she wasn't with Travis - Dawson Wolfgramm</li>
-            <li class="Participant-name">I know she gained at least 1 million more followers because of Travis Kelsey - Shae Cloward</li>
+    <section class="card shadow-sm">
+      <div class="card-header">
+        <h5 class="mb-0">Live chat:</h5>
+      </div>
+      <div class="card-body">
+        <ul id="chatList" class="notification mb-3">
+          <li class="Participant-name">I dont think that Taylor got any more famous than when she wasn't with Travis - Dawson Wolfgramm</li>
+          <li class="Participant-name">I know she gained at least 1 million more followers because of Travis Kelsey - Shae Cloward</li>
         </ul>
-      </div>
-      <p> this will be added in the database</p>
 
-      <br />
+        <form id="chatForm" class="form-floating">
+          <textarea id="chatInput" class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
+          <label for="chatInput">Comments</label>
+          <div class="text-end mt-2">
+            <button type="submit" class="btn btn-primary">Post</button>
+          </div>
+        </form>
 
-      <div class="VoteBar">
-        
+        <small class="text-muted d-block mt-3">This will be added in the database.</small>
       </div>
+    </section>
 
     <footer class="bg-dark text-white-50">
       <div class="container-fluid">
