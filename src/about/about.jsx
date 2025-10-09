@@ -5,8 +5,13 @@ export function About() {
   return (
     <main className="text-center quote-box">
       <div className="picture-box">
-        <img src="public/2015-09-10 832.JPG" className="rounded" width="400px" alt="random" />
-        {/* <!-- <img src="public/2015-09-10 832.JPG" className="img-fluid" alt="random"> --> */}
+        <img
+          src="2015-09-10 832.JPG"
+          alt="Random"
+          className="rounded img-fluid"
+          width={400}
+          loading="lazy"
+        />
       </div>
       <p>
         Ever been stuck in awkward silence?
