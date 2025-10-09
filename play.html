@@ -22,20 +22,8 @@
     
   </head>
   <body>
-    <!-- Use header, main, and footer elements to give semantic structure -->
     <header>
       <h1>Vote Hot Takes<sup>&reg;</sup></h1>
-
-      <!-- Navigation elements -->
-      <!-- <nav>
-        <menu>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="topics.html">Topics</a></li>
-          <li><a href="play.html">Play</a></li>
-          <li><a href="scores.html">Scores</a></li>
-          <li><a href="about.html">About</a></li>
-        </menu>
-      </nav> -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Vote Hot Takes</a>
@@ -58,7 +46,6 @@
           </div>
         </div>
       </nav>
-      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
       <hr />
     </header>
 
@@ -87,51 +74,51 @@
         </div>
       </div>
 
-<section class="row g-2 mb-3 align-items-center">
-  <div class="col-12 col-md-auto">
-    <strong>Category:</strong>
-    <div class="btn-group">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Celebrities
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="play.html?category=Celebrities">Celebrities</a>
-        <a class="dropdown-item" href="play.html?category=Politics">Politics</a>
-        <a class="dropdown-item" href="play.html?category=Food%20%26%20Drinks">Food & Drinks</a>
-        <a class="dropdown-item" href="play.html?category=Lifestyle">Lifestyle</a>
-        <a class="dropdown-item" href="play.html?category=Sports">Sports</a>
-        <a class="dropdown-item" href="play.html?category=Cultures">Cultures</a>
+      <section class="row g-2 mb-3 align-items-center">
+        <div class="col-12 col-md-auto">
+          <strong>Category:</strong>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Celebrities
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="play.html?category=Celebrities">Celebrities</a>
+              <a class="dropdown-item" href="play.html?category=Politics">Politics</a>
+              <a class="dropdown-item" href="play.html?category=Food%20%26%20Drinks">Food & Drinks</a>
+              <a class="dropdown-item" href="play.html?category=Lifestyle">Lifestyle</a>
+              <a class="dropdown-item" href="play.html?category=Sports">Sports</a>
+              <a class="dropdown-item" href="play.html?category=Cultures">Cultures</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-auto">
+          <strong>Participant:</strong> <span id="participantName">Dawson</span>
+        </div>
+      </section>
+
+      <!-- Activity feed -->
+      <section class="mb-4">
+        <ul class="notification">
+          <li class="Participant-name">Dawson has joined the link</li>
+          <li class="Participant-name">Savanah has joined the link</li>
+          <li class="Participant-name">Dawson has voted YES!</li>
+          <li class="Participant-name">Shae has joined the link</li>
+        </ul>
+      </section>
+
+      <h2>Vote Your Hot Take?</h2>
+      <div class="poll-card p-4">
+        <div class="poll-statement mb-3">
+          Travis Kelce made Taylor Swift Famous?
+        </div>
+        <form method="get" action="play.html" class="d-grid gap-3">
+          <button type="submit" class="btn btn-agree btn-lg">AGREE</button>
+          <button type="submit" class="btn btn-disagree btn-lg">DISAGREE</button>
+        </form>
       </div>
-    </div>
-  </div>
-
-  <div class="col-12 col-md-auto">
-    <strong>Participant:</strong> <span id="participantName">Dawson</span>
-  </div>
-</section>
-
-    <!-- Activity feed -->
-    <section class="mb-4">
-      <ul class="notification">
-        <li class="Participant-name">Dawson has joined the link</li>
-        <li class="Participant-name">Savanah has joined the link</li>
-        <li class="Participant-name">Dawson has voted YES!</li>
-        <li class="Participant-name">Shae has joined the link</li>
-      </ul>
-    </section>
-
-    <h2>Vote Your Hot Take?</h2>
-    <div class="poll-card p-4">
-      <div class="poll-statement mb-3">
-        Travis Kelce made Taylor Swift Famous?
-      </div>
-      <form method="get" action="play.html" class="d-grid gap-3">
-        <button type="submit" class="btn btn-agree btn-lg">AGREE</button>
-        <button type="submit" class="btn btn-disagree btn-lg">DISAGREE</button>
-      </form>
-    </div>
-    <a class="btn btn-primary" href="#" role="button">New Prompt</a>
-    <input class="btn btn-primary" type="reset" value="Reset">
+      <a class="btn btn-primary" href="#" role="button">New Prompt</a>
+      <input class="btn btn-primary" type="reset" value="Reset">
 
       <br />
 
@@ -149,27 +136,28 @@
 
       <br />
 
-    <section class="card shadow-sm">
-      <div class="card-header">
-        <h5 class="mb-0">Live chat:</h5>
-      </div>
-      <div class="card-body">
-        <ul id="chatList" class="notification mb-3">
-          <li class="Participant-name">I dont think that Taylor got any more famous than when she wasn't with Travis - Dawson Wolfgramm</li>
-          <li class="Participant-name">I know she gained at least 1 million more followers because of Travis Kelsey - Shae Cloward</li>
-        </ul>
+      <section class="card shadow-sm">
+        <div class="card-header">
+          <h5 class="mb-0">Live chat:</h5>
+        </div>
+        <div class="card-body">
+          <ul id="chatList" class="notification mb-3">
+            <li class="Participant-name">I dont think that Taylor got any more famous than when she wasn't with Travis - Dawson Wolfgramm</li>
+            <li class="Participant-name">I know she gained at least 1 million more followers because of Travis Kelsey - Shae Cloward</li>
+          </ul>
 
-        <form id="chatForm" class="form-floating">
-          <textarea id="chatInput" class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
-          <label for="chatInput">Comments</label>
-          <div class="text-end mt-2">
-            <button type="submit" class="btn btn-primary">Post</button>
-          </div>
-        </form>
+          <form id="chatForm" class="form-floating">
+            <textarea id="chatInput" class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
+            <label for="chatInput">Comments</label>
+            <div class="text-end mt-2">
+              <button type="submit" class="btn btn-primary">Post</button>
+            </div>
+          </form>
 
-        <small class="text-muted d-block mt-3">This will be added in the database.</small>
-      </div>
-    </section>
+          <small class="text-muted d-block mt-3">This will be added in the database.</small>
+        </div>
+      </section>
+    </main>
 
     <footer class="bg-dark text-white-50">
       <div class="container-fluid">

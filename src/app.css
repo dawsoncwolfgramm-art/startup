@@ -1,5 +1,5 @@
 .body {
-    margin: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   min-width: 375px;
@@ -22,10 +22,11 @@ footer {
   flex: 0 30px;
 }
 
+
 menu {
   flex: 1;
   display: flex;
-  /*  overwrite Bootstrap so the menu does not wrap */
+  /* overwrite Bootstrap so the menu does not wrap */
   flex-direction: row !important;
   list-style: none;
 }
@@ -53,4 +54,5 @@ footer a {
   main {
     flex: 1 100vh;
   }
-}
+} 
+
