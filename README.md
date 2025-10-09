@@ -115,9 +115,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
+- [x] **Bundled using Vite** - I downloaded the latest vite@ and set it up and put it up in src folder so that it followed the write up.
+- [x] **Components** - I created the App.jsx file, which serves as the base of my page. I converted login.html, play.html, about.html, scores.html, and topics.html into React components as .jsx files in my src folder. This allows me to use them as components while keeping the header and footer in App.jsx unchanged when switching between different pages.
+- [x] **Router** - I wrapped my App.jsx return in a BrowserRouter, which let me set up different routes for each component. This way, when a specific URL is visited, the corresponding component is displayed in App.jsx.
 
 ## 🚀 React part 2: Reactivity deliverable
 
