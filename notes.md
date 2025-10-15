@@ -121,3 +121,41 @@ Handling the toggling of the checkboxes was particularly interesting.
   ))}
 </div>
 ```
+
+
+
+
+
+
+PRIVATE NOTES
+- Fetch
+CODE TO PUT INTO FETCH AND WHAT THE API DOES.
+HTML
+<pre></pre>
+<p></p>
+
+JS
+const url = "https://quote.cs260.click";
+const photo = 
+"https://picsum.photos/id/0/info";
+const github = 
+"https://api.github.com/users/dawsoncwolfgramm-art";
+fetch(url)
+  .then((x) => x.json())
+  .then((response) => {
+    document.querySelector("pre").textContent = JSON.stringify(
+      response,
+      null,
+      "  "
+    );
+});
+  
+  fetch(photo)
+  .then((x) => x.json())
+  .then((response) => {
+    document.querySelector("p").textContent = JSON.stringify(
+      response,
+      null,
+      "  "
+    );
+});
