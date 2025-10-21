@@ -408,7 +408,7 @@ Example: { "name": "John", "age": 25 }
   -  Async function returns value -> printed when awaited or .then
   -  Promise chain: Promise.resolve(2).then(x=>x*2).then(x=>x+1).then(console.log) -> 5Reject handled -> shows error via catch.
  
-# ChatGPT
+# internet response
 
 
 ### 1) What does the <link> element do?
