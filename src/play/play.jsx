@@ -147,6 +147,9 @@ export function Play() {
 
           <small className="text-muted d-block mt-3">This will be added in the database.</small>
         </div>
+        <div classname="card-footer text-muted">
+          spcaing to figure this part out...
+        </div>
       </section>
     </main>
   );

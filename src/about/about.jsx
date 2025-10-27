@@ -42,6 +42,9 @@ export function About() {
           </p>
         </div>
       </div>
+      <div classname="card-footer text-muted">
+        spcaing to figure this part out...
+      </div>
     </main>
   );
 }

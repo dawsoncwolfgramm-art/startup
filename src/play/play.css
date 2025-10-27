@@ -8,8 +8,7 @@ header {
 body {
   background-color: lightblue;
   font-family: Arial, sans-serif;
-font-family:'Times New Roman', Times, serif;
-
+  font-family:'Times New Roman', Times, serif;
 }
 
 footer {
@@ -20,6 +19,11 @@ h1 {
   color: darkblue;
   text-align: center;
 }
+
+.card-footer{
+  gap: 10px;              /* spacing between items */
+}
+
 .nav-lang {
   font-family:'Times New Roman', Times, serif;
 }
