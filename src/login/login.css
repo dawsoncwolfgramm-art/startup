@@ -1,74 +1,23 @@
-.loginButton {
-    background-color: aliceblue;
-}
-header {
-    background-color: aliceblue;
-}
-
 body {
   background-color: lightblue;
-  font-family: Arial, sans-serif;
   font-family:'Times New Roman', Times, serif;
-
 }
 
-footer {
-  flex: 0 30px;
+.text-center {
+  text-align: center;
+  background-color: lightblue;
+  font-family:'Times New Roman', Times, serif;
 }
+
+.wrapper { padding-top: 1rem; }
+@media (min-width: 992px) {
+  .wrapper .display-6 { margin-top: .25rem; }
+}
+
+main { padding-top: 1rem; }              /* keep welcome near the top */
+
 
 h1 {
   color: darkblue;
   text-align: center;
-}
-.nav-lang {
-  font-family:'Times New Roman', Times, serif;
-}
-
-.nav-list {
-  list-style: none;      /* removes the dots */
-  margin: 0;             /* removes default margin */
-  padding: 0;            /* removes default padding */
-  display: flex;         /* places items in a row */
-  gap: 1em;              /* spacing between items */
-}
-
-.nav-list li a {
-  text-decoration: none; /* remove underline */
-  color: darkblue;
-  font-weight: bold;
-}
-
-.nav-list li a:hover {
-  color: crimson;        /* hover effect */
-}
-
-.poll-card {
-  border-radius: 1rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  text-align: center;
-  background: #fff;
-}
-
-.poll-statement {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #333;
-}
-
-  .btn-agree {
-  background-color: green;
-  color: white;
-  transition: transform 0.2s ease;
-}
-.btn-agree:hover {
-  transform: scale(1.05);
-}
-
-.btn-disagree {
-  background-color: red;
-  color: white;
-  transition: transform 0.2s ease;
-}
-.btn-disagree:hover {
-  transform: scale(1.05);
 }

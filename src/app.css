@@ -8,6 +8,12 @@
 
 header {
   flex: 0 80px;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.wrapper { padding-top: 1rem; }
+@media (min-width: 992px) {
+  .wrapper .display-6 { margin-top: .25rem; }
 }
 
 main {
@@ -20,6 +26,14 @@ main {
 
 footer {
   flex: 0 30px;
+  font-family:'Times New Roman', Times, serif;
+
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 
@@ -29,6 +43,8 @@ menu {
   /* overwrite Bootstrap so the menu does not wrap */
   flex-direction: row !important;
   list-style: none;
+  font-family:'Times New Roman', Times, serif;
+
 }
 
 .navbar-brand {
