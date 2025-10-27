@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { MessageDialog } from './messageDialog';
@@ -13,30 +12,39 @@ export function Unauthenticated(props) {
   async function loginUser(e) {
     e.preventDefault();
 
-    if (!userName || !password) {
-        setDisplayError('Please enter both username and password.');
-        return;
+    const u = userName.trim();
+    const p = password;
+
+    if (!u || !p) {
+      setDisplayError('Please enter both username and password.');
+      return;
     }
 
-    localStorage.setItem('userName', userName);
-    props.onLogin(userName);
+    // Persist and notify parent to flip auth state
+    localStorage.setItem('userName', u);
+    props.onLogin?.(u);
   }
 
   async function createUser(e) {
     e.preventDefault();
 
-    if (!userName || !password || !confirmPassWord) {
-        setDisplayError('Please fill out all fields to create an account.');
-        return;
+    const u = userName.trim();
+    const p = password;
+    const cp = confirmPassword;
+
+    if (!u || !p || !cp) {
+      setDisplayError('Please fill out all fields to create an account.');
+      return;
     }
 
-    if (password !== confirmPassWord) {
-        setDisplayError('Passwords do not match.');
-        return;
+    if (p !== cp) {
+      setDisplayError('Passwords do not match.');
+      return;
     }
 
-    localStorage.setItem('userName', userName);
-    props.onLogin(userName);
+    // If you later wire an API, do it here; on success, log in:
+    localStorage.setItem('userName', u);
+    props.onLogin?.(u);
   }
 
   return (
@@ -49,6 +57,7 @@ export function Unauthenticated(props) {
             placeholder="Enter email"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            autoComplete={props.isSignup ? 'email' : 'username'}
           />
         </Form.Group>
 
@@ -59,6 +68,7 @@ export function Unauthenticated(props) {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete={props.isSignup ? 'new-password' : 'current-password'}
           />
         </Form.Group>
 
@@ -70,6 +80,7 @@ export function Unauthenticated(props) {
               placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              autoComplete="new-password"
             />
           </Form.Group>
         )}
