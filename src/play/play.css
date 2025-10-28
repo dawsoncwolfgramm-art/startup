@@ -1,85 +1,90 @@
-.loginButton {
-    background-color: aliceblue;
-}
-header {
-    background-color: aliceblue;
-}
-
-body {
+.play-page {
   background-color: lightblue;
-  font-family: Arial, sans-serif;
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-footer {
-  flex: 0 30px;
+/* keep welcome/content near the top, like login.css */
+.play-page.wrapper { padding-top: 1rem; }
+
+@media (min-width: 992px) {
+  .play-page.wrapper .display-6 { margin-top: .25rem; }
 }
 
-h1 {
+/* match login.css main spacing */
+.play-page main,           /* in case main is nested */
+.play-page {               /* primary main has the class already */
+  padding-top: 1rem;
+}
+
+/* headings aligned & colored like login.css */
+.play-page h1,
+.play-page h2,
+.play-page h3,
+.play-page h4 {
   color: darkblue;
   text-align: center;
 }
 
-.nav-lang {
-  font-family:'Times New Roman', Times, serif;
+/* -----------------------------
+   Local components (scoped)
+   ----------------------------- */
+
+.play-page .poll-result {
+  text-align: center;
 }
 
-.nav-list {
-  list-style: none;      /* removes the dots */
-  margin: 0;             /* removes default margin */
-  padding: 0;            /* removes default padding */
-  display: flex;         /* places items in a row */
-  gap: 1em;              /* spacing between items */
-}
-
-.nav-list li a {
-  text-decoration: none; /* remove underline */
-  color: darkblue;
-  font-weight: bold;
-}
-
-.nav-list li a:hover {
-  color: crimson;        /* hover effect */
-}
-
-.poll-result {
-    text-align: center;
-}
-
-.share-simple .btn {
+.play-page .share-simple .btn {
   min-width: 100px;
   font-weight: 500;
 }
-.poll-card {
+
+.play-page .poll-card {
   border-radius: 1rem;
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
   text-align: center;
   background: #fff;
   width: 100%;
-  max-width: 100%;  
+  max-width: 100%;
   margin: 0 auto;
 }
 
-.poll-statement {
+.play-page .poll-statement {
   font-size: 1.25rem;
   font-weight: 600;
   color: #333;
 }
 
-  .btn-agree {
+.play-page .btn-agree {
   background-color: green;
   color: white;
   transition: transform 0.2s ease;
 }
-.btn-agree:hover {
+.play-page .btn-agree:hover {
   transform: scale(1.05);
 }
 
-.btn-disagree {
+.play-page .btn-disagree {
   background-color: red;
   color: white;
   transition: transform 0.2s ease;
 }
-.btn-disagree:hover {
+.play-page .btn-disagree:hover {
   transform: scale(1.05);
+}
+
+/* Optional: local nav styling if used on Play page */
+.play-page .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+}
+.play-page .nav-list a {
+  text-decoration: none;
+  color: darkblue;
+  font-weight: bold;
+}
+.play-page .nav-list a:hover {
+  color: crimson;
 }
