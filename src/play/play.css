@@ -3,20 +3,16 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
-/* keep welcome/content near the top, like login.css */
 .play-page.wrapper { padding-top: 1rem; }
 
 @media (min-width: 992px) {
   .play-page.wrapper .display-6 { margin-top: .25rem; }
 }
 
-/* match login.css main spacing */
-.play-page main,           /* in case main is nested */
-.play-page {               /* primary main has the class already */
+.play-page main, play-page {              
   padding-top: 1rem;
 }
 
-/* headings aligned & colored like login.css */
 .play-page h1,
 .play-page h2,
 .play-page h3,
@@ -24,10 +20,6 @@
   color: darkblue;
   text-align: center;
 }
-
-/* -----------------------------
-   Local components (scoped)
-   ----------------------------- */
 
 .play-page .poll-result {
   text-align: center;
@@ -72,7 +64,6 @@
   transform: scale(1.05);
 }
 
-/* Optional: local nav styling if used on Play page */
 .play-page .nav-list {
   list-style: none;
   margin: 0;

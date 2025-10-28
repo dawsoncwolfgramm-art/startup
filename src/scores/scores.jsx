@@ -6,15 +6,9 @@ export function Scores() {
   const [rows, setRows] = React.useState([]);
 
   React.useEffect(() => {
-    // demo data for first run; remove in prod
     seedDemoVotes();
 
     setRows(getAggregatedScores());
-
-    // If you later add live updates (e.g., after voting elsewhere),
-    // you could listen to storage events or use a context to refresh here.
-    // window.addEventListener('storage', () => setRows(getAggregatedScores()));
-    // return () => window.removeEventListener('storage', ...);
   }, []);
 
   return (

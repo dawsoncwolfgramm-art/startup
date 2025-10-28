@@ -16,7 +16,6 @@ export default function App() {
     userName ? AuthState.Authenticated : AuthState.Unauthenticated
   );
 
-  // Keep authState consistent if userName changes externally for any reason
   React.useEffect(() => {
     setAuthState(userName ? AuthState.Authenticated : AuthState.Unauthenticated);
   }, [userName]);
@@ -34,7 +33,6 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      {/* Full-height flex column to keep footer at bottom */}
       <div className="d-flex flex-column min-vh-100">
         <header className="bg-light border-bottom">
           <div className="container py-3">

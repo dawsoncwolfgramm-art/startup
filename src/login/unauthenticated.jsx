@@ -12,39 +12,37 @@ export function Unauthenticated(props) {
   async function loginUser(e) {
     e.preventDefault();
 
-    const u = userName.trim();
-    const p = password;
+    const user = userName.trim();
+    const userPassword = password;
 
-    if (!u || !p) {
+    if (!user || !userPassword) {
       setDisplayError('Please enter both username and password.');
       return;
     }
 
-    // Persist and notify parent to flip auth state
-    localStorage.setItem('userName', u);
-    props.onLogin?.(u);
+    localStorage.setItem('userName', user);
+    props.onLogin?.(user);
   }
 
   async function createUser(e) {
     e.preventDefault();
 
-    const u = userName.trim();
-    const p = password;
+    const user = userName.trim();
+    const userPassword = password;
     const cp = confirmPassword;
 
-    if (!u || !p || !cp) {
+    if (!user || !userPassword || !cp) {
       setDisplayError('Please fill out all fields to create an account.');
       return;
     }
 
-    if (p !== cp) {
+    if (userPassword !== cp) {
       setDisplayError('Passwords do not match.');
       return;
     }
 
-    // If you later wire an API, do it here; on success, log in:
-    localStorage.setItem('userName', u);
-    props.onLogin?.(u);
+    localStorage.setItem('userName', user);
+    props.onLogin?.(user);
   }
 
   return (

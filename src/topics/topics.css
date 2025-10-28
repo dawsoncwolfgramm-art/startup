@@ -2,7 +2,6 @@
   padding-top: 1rem;
 }
 
-/* Make stretched-link cover the whole card */
 .topic-card { position: relative; border-radius: 1rem; }
 .topic-card .card-body { padding: 2rem 1rem; }
 

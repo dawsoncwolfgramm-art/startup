@@ -2,7 +2,7 @@ import React from "react";
 import "./play.css";
 import { useSearchParams } from "react-router-dom";
 import { recordVote, getAggregatedScores } from "../scores/scoreService";
-import { Comments } from "./Comments";   // 👈 updated import
+import { Comments } from "./comments";   // 👈 updated import
 
 export function Play({ userName = "Anonymous" }) {
   const [params] = useSearchParams();
@@ -38,7 +38,6 @@ export function Play({ userName = "Anonymous" }) {
 
   return (
     <main className="play-page wrapper">
-      {/* Share links */}
       <div className="share-simple text-center my-4">
         <h5>Share this</h5>
         <div className="d-flex justify-content-center gap-2">
@@ -62,7 +61,6 @@ export function Play({ userName = "Anonymous" }) {
         </div>
       </div>
 
-      {/* Vote section */}
       <h2 className="mb-3 text-center">Vote Your Hot Take?</h2>
       <div className="poll-card p-4 mb-3">
         <div className="poll-statement mb-3">{topic}</div>
@@ -72,7 +70,6 @@ export function Play({ userName = "Anonymous" }) {
         </div>
       </div>
 
-      {/* Live results */}
       <h4 className="poll-result">Live Poll Results</h4>
       <div className="progress" style={{ height: 30 }}>
         <div className="progress-bar bg-success" style={{ width: `${yesPct}%` }}>
@@ -83,7 +80,6 @@ export function Play({ userName = "Anonymous" }) {
         </div>
       </div>
 
-      {/* Comments box */}
       <Comments category={category} topic={topic} userName={userName} />
 
       <small className="text-muted d-block mt-3">
