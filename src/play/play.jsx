@@ -1,6 +1,13 @@
 import React from "react";
 import "./play.css";
 import { NavLink } from "react-router-dom";
+import { recordVote } from '../scores/scoreService';
+
+// Example handler:
+function onCastVote({ category, topic, vote }, userName) {
+  recordVote({ category, topic, vote, name: userName });
+  // optional: toast or navigate
+}
 
 export function Play() {
   return (

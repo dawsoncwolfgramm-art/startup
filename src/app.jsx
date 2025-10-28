@@ -91,7 +91,7 @@ export default function App() {
               }
             />
             <Route path="/topics" element={<Topics userName={userName} />} />
-            <Route path="/play" element={<Play />} />
+            <Route path="/play" element={<Play userName={userName} />} />
             <Route path="/scores" element={<Scores />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />

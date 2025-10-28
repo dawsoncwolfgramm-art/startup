@@ -1,48 +1,57 @@
-.loginButton {
-    background-color: aliceblue;
-}
-header {
-    background-color: aliceblue;
+.scores-page {
+  background: #f4f6fb; 
+  font-family: 'Times New Roman', Times, serif; 
 }
 
-body {
-  background-color: lightblue;
-  font-family:'Times New Roman', Times, serif;
-}
-
-footer {
-  flex: 0 30px;
-}
-
-h1 {
-  color: darkblue;
+.scores-page h1,
+.scores-page h2,
+.scores-page h3,
+.scores-page h4,
+.scores-page h5 {
+  color: #0b3a7e; 
   text-align: center;
 }
-.nav-lang {
-  font-family:'Times New Roman', Times, serif;
+
+.scores-page .table {
+  margin: 0;
+  border-radius: .5rem;
+  overflow: hidden; 
 }
 
-.nav-list {
-  list-style: none;      /* removes the dots */
-  margin: 0;             /* removes default margin */
-  padding: 0;            /* removes default padding */
-  display: flex;         /* places items in a row */
-  gap: 1em;              /* spacing between items */
-}
-
-.nav-list li a {
-  text-decoration: none; /* remove underline */
-  color: darkblue;
-  font-weight: bold;
-}
-
-.nav-list li a:hover {
-  color: crimson;        /* hover effect */
-}
-
-td {
+.scores-page td.truncate,
+.scores-page .truncate {
   max-width: 40vw;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.progress.vh-30 {
+  height: 30px;
+}
+
+.scores-page .progress-bar {
+  font-weight: 600;
+}
+
+.scores-page .loginButton {
+  background-color: aliceblue;
+}
+
+.scores-page .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+}
+
+.scores-page .nav-list a {
+  text-decoration: none;
+  color: #0b3a7e;
+  font-weight: 700;
+}
+
+.scores-page .nav-list a:hover {
+  color: crimson;
 }
