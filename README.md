@@ -123,8 +123,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - For this deliverable, I built out all the main features of my Vote Hot Takes app. Users can sign up or log in, and their info is saved in localStorage so they stay signed in. Once logged in, they can access the Topics, Play, and Scores pages. The Topics page links to the Play page using React Router, and the Play page includes share buttons, live voting that updates instantly, and a comment section where users can post thoughts on each topic. Votes and comments are saved locally, and the Scores page shows results with progress bars for each topic.
+- [x] **Hooks** - I used React hooks like useState, useEffect, and useSearchParams to make everything reactive and simple. These manage data, keep the app updated without reloading, and remember user info and votes between sessions.
 
 ## 🚀 Service deliverable
 
