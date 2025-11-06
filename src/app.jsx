@@ -116,3 +116,5 @@ function NotFound() {
     </main>
   );
 }
+
+export default App;

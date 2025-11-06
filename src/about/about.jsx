@@ -3,45 +3,51 @@ import './about.css';
 
 export function About() {
   return (
-    <main className="text-center quote-box">
-      <div className="picture-box">
+    <main className="container my-4">
+      <header className="text-center mb-4">
+        <h1 className="h3 mb-2">Break the Ice in Seconds</h1>
+        <p className="text-muted mb-0">
+          Instant conversation starters for parties, road trips, classes, and first meetings.
+        </p>
+      </header>
+
+      <section className="picture-box mb-4">
         <img
           src="2015-09-10 832.JPG"
-          alt="Random"
+          alt="Friends chatting and laughing—illustrating conversation starters in action"
           className="rounded img-fluid"
-          width={400}
           loading="lazy"
         />
-      </div>
-      <p>
-        Ever been stuck in awkward silence?
-      </p>
-      <p>
-        My applicatoin gives you instant conversation starters, perfect for 
-        parties, road trips, or just breaking the ice. In seconds, you’ll have everyone laughing, debating, 
-        and connecting! It’s easy to use, fun for all ages, and makes talking to people way less stressful. 
-        Whether you’re with friends or meeting someone new, you’ll always have something to say.
-      </p>
+      </section>
 
-      <div className="card my-4">
+      <section className="text-center mb-4">
+        <p>
+          Ever been stuck in an awkward silence? This application gives you instant, engaging prompts so
+          you’re never out of things to say. In seconds, you’ll have people laughing, debating, and connecting.
+        </p>
+        <p>
+          It’s easy to use, fun for all ages, and removes the stress of starting a conversation—whether
+          you’re with friends or meeting someone new.
+        </p>
+      </section>
+
+      <section className="card my-4" aria-labelledby="how-to-use-heading">
         <div className="card-header">
-          <h5 className="mb-0">HOW TO USE</h5>
+          <h2 id="how-to-use-heading" className="h6 mb-0">How to Use</h2>
         </div>
         <div className="card-body">
-          <p>
-            The way to play the game is to first choose a topic that interests you. Then after the game has 
-            started, ChatGPT will be sent a question to put up in the prompt window. This will be where you 
-            will read and vote on whether you agree with or disagree with the prompt. 
-          </p>
-          <p>
-            When pressed it will show the percentage of how many people said yes or no and then there will be 
-            a chat underneath to talk to people who also have voted why they would choose that choice. 
-          </p>
-          <p>
-            Anyone is invited and we hope this gives people more than just generic questions about one another.
+          <ol className="mb-3">
+            <li>Choose a topic that interests you.</li>
+            <li>Start the round—an on-screen prompt appears instantly.</li>
+            <li>Vote: agree or disagree (or pick from multiple options).</li>
+            <li>See live results, then jump into the chat to explain your take.</li>
+          </ol>
+          <p className="mb-0">
+            Anyone can join. Expect more than generic “get-to-know-you” questions—these prompts spark real
+            conversations.
           </p>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
