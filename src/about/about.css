@@ -1,60 +1,122 @@
-.loginButton {
-    background-color: aliceblue;
+:root {
+  --brand-bg: aliceblue;
+  --brand-accent: darkblue;
+  --brand-hover: crimson;
+  --surface: #f7f9fc;
+  --text: #0b2545;
 }
-header {
-    background-color: aliceblue;
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
 }
 
 body {
-  background-color: lightblue;
-  font-family:'Times New Roman', Times, serif;
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue; /* keep your choice */
+  color: var(--text);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Header + footer surfaces */
+header, .loginButton {
+  background-color: var(--brand-bg);
 }
 
 footer {
-  flex: 0 30px;
+  margin-top: auto; /* pushes footer to bottom */
+  padding: 0.75rem 1rem;
+  background: var(--brand-bg);
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
 
+/* Headings */
 h1 {
-  color: darkblue;
+  color: var(--brand-accent);
   text-align: center;
+  margin: 0.5rem 0 1rem;
 }
-.nav-lang {
+
+/* Nav */
+.nav-lang,
+.nav-list {
   font-family:'Times New Roman', Times, serif;
 }
 
 .nav-list {
-  list-style: none;      /* removes the dots */
-  margin: 0;             /* removes default margin */
-  padding: 0;            /* removes default padding */
-  display: flex;         /* places items in a row */
-  gap: 1em;              /* spacing between items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1em;
 }
 
 .nav-list li a {
-  text-decoration: none; /* remove underline */
-  color: darkblue;
+  text-decoration: none;
+  color: var(--brand-accent);
   font-weight: bold;
+  position: relative;
+  transition: color 160ms ease;
 }
 
-.nav-list li a:hover {
-  color: crimson;        /* hover effect */
+.nav-list li a:hover,
+.nav-list li a:focus-visible {
+  color: var(--brand-hover);
 }
 
+.nav-list li a:focus-visible {
+  outline: 2px solid var(--brand-hover);
+  outline-offset: 2px;
+}
+
+/* Login button feels clickable */
+.loginButton {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 160ms ease;
+}
+.loginButton:hover,
+.loginButton:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Picture box: responsive, no distortion */
 .picture-box {
-  height: calc(535px + 1em);
-  margin-bottom: 1em;
-  padding: 0.5em;
-  background: rgb(86, 89, 93);
-  border-radius: 5px;
+  aspect-ratio: 16/9;      /* or a fixed height */
+  overflow: hidden;
+  text-align: center;       /* centers narrow images horizontally */
 }
 
-#picture img {
-  width: 100%;
+.picture-box img {
   height: 100%;
+  width: auto;              /* keep aspect ratio */
+  object-fit: contain;      /* never crop */
+  display: inline-block;
 }
 
+
+
+/* Quote box looks intentional */
 .quote-box {
   margin-top: 1em;
-  padding: 0.5em;
-  border-radius: 5px;
+  padding: 0.75em 1em;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid rgba(0,0,0,0.06);
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* Subtle motion on hoverables for “it works” vibe */
+a, button, .loginButton {
+  will-change: transform, box-shadow;
 }
