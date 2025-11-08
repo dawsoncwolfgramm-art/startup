@@ -42,6 +42,7 @@ export function Unauthenticated(props) {
 
       if (res.ok) {
         localStorage.setItem('userName', payload.email);
+        // console.log('Logged in as', payload.email);
         props.onLogin?.(payload.email);
       } else {
         let msg = 'Unknown error';

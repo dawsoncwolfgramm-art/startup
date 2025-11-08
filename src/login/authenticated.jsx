@@ -16,6 +16,7 @@ export function Authenticated(props) {
         // Logout failed. Assuming offline
       })
       .finally(() => {
+        // console.log('Logged out');
         localStorage.removeItem('userName');
         props.onLogout();
       });
