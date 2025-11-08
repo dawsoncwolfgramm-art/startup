@@ -8,41 +8,54 @@ export function Unauthenticated(props) {
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
   const [displayError, setDisplayError] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
 
   async function loginUser(e) {
     e.preventDefault();
-
-    const user = userName.trim();
-    const userPassword = password;
-
-    if (!user || !userPassword) {
-      setDisplayError('Please enter both username and password.');
-      return;
-    }
-
-    localStorage.setItem('userName', user);
-    props.onLogin?.(user);
+    const email = userName.trim();
+    if (!email || !password) return setDisplayError('Please enter both email and password.');
+    await loginOrCreate('/api/auth/login', { email, password });
   }
 
   async function createUser(e) {
     e.preventDefault();
-
-    const user = userName.trim();
-    const userPassword = password;
-    const cp = confirmPassword;
-
-    if (!user || !userPassword || !cp) {
-      setDisplayError('Please fill out all fields to create an account.');
-      return;
+    const email = userName.trim();
+    if (!email || !password || !confirmPassword) {
+      return setDisplayError('Please fill out all fields to create an account.');
     }
-
-    if (userPassword !== cp) {
-      setDisplayError('Passwords do not match.');
-      return;
+    if (password !== confirmPassword) {
+      return setDisplayError('Passwords do not match.');
     }
+    await loginOrCreate('/api/auth/create', { email, password });
+  }
 
-    localStorage.setItem('userName', user);
-    props.onLogin?.(user);
+  async function loginOrCreate(endpoint, payload) {
+    try {
+      setLoading(true);
+      setDisplayError(null);
+
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        localStorage.setItem('userName', payload.email);
+        props.onLogin?.(payload.email);
+      } else {
+        let msg = 'Unknown error';
+        try {
+          const body = await res.json();
+          msg = body?.msg || msg;
+        } catch (_) {}
+        setDisplayError(`⚠ Error: ${msg}`);
+      }
+    } catch (err) {
+      setDisplayError(`⚠ Network error: ${err.message}`);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -56,6 +69,8 @@ export function Unauthenticated(props) {
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             autoComplete={props.isSignup ? 'email' : 'username'}
+            disabled={loading}
+            required
           />
         </Form.Group>
 
@@ -67,6 +82,8 @@ export function Unauthenticated(props) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete={props.isSignup ? 'new-password' : 'current-password'}
+            disabled={loading}
+            required
           />
         </Form.Group>
 
@@ -79,6 +96,8 @@ export function Unauthenticated(props) {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               autoComplete="new-password"
+              disabled={loading}
+              required
             />
           </Form.Group>
         )}
@@ -87,15 +106,13 @@ export function Unauthenticated(props) {
           variant={props.isSignup ? 'success' : 'primary'}
           type="submit"
           className="w-100"
+          disabled={loading}
         >
-          {props.isSignup ? 'Sign Up' : 'Login'}
+          {loading ? 'Please wait…' : props.isSignup ? 'Sign Up' : 'Login'}
         </Button>
       </Form>
 
-      <MessageDialog
-        message={displayError}
-        onHide={() => setDisplayError(null)}
-      />
+      <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
     </>
   );
 }
