@@ -68,11 +68,68 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 const verifyAuth = async (req, res, next) => {
   const user = await findUser('token', req.cookies[authCookieName]);
   if (user) {
+    req.user = user;
     next();
   } else {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 };
+
+// Record a single vote
+apiRouter.post('/vote', verifyAuth, async (req, res) => {
+  const { category, topic, vote } = req.body || {};
+  if (!category || !topic || !vote) {
+    return res.status(400).send({ msg: 'Missing category, topic, or vote' });
+  }
+
+  await DB.addVote({
+    email: req.user.email,   // from verifyAuth
+    category,
+    topic,
+    vote,                    // 'Yes' | 'No'
+  });
+
+  res.status(201).send({ ok: true });
+});
+
+// Get aggregated scores for all votes
+apiRouter.get('/scores', verifyAuth, async (req, res) => {
+  const votes = await DB.getAllVotes();
+
+  // Aggregate into { category, name, topic, yes, no }
+  const map = new Map();
+
+  for (const v of votes) {
+    const key = `${v.category}__${v.email}__${v.topic}`;
+    if (!map.has(key)) {
+      map.set(key, {
+        category: v.category,
+        name: v.email,       // you can later strip @domain if you want
+        topic: v.topic,
+        yes: 0,
+        no: 0,
+      });
+    }
+    const row = map.get(key);
+    if ((v.vote || '').toLowerCase() === 'yes') row.yes += 1;
+    else row.no += 1;
+  }
+
+  const rows = Array.from(map.values());
+  res.send(rows);
+});
+
+// Default error handler
+app.use(function (err, _req, res, _next) {
+  console.error(err);
+  res.status(500).send({ type: err.name, message: err.message });
+});
+
+// Return the application's default page if the path is unknown
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
+
 
 async function createUser(email, password) {
   const passwordHash = await bcrypt.hash(password, 10);
@@ -82,15 +139,17 @@ async function createUser(email, password) {
     password: passwordHash,
     token: uuid.v4(),
   };
-  users.push(user);
-
+  await DB.addUser(user);
   return user;
 }
 
 async function findUser(field, value) {
   if (!value) return null;
 
-  return users.find((u) => u[field] === value);
+  if (field === 'token') {
+    return DB.getUserByToken(value);
+  }
+  return DB.getUser(value);
 }
 
 // setAuthCookie in the HTTP response
