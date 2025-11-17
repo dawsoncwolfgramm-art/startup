@@ -72,8 +72,6 @@ export function Login({ userName, authState, onAuthChange }) {
               </div>
             </div>
           </div>
-
-          <p className="mt-4">This will be added to the database</p>
         </div>
       )}
     </main>

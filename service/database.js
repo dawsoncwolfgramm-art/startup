@@ -1,15 +1,13 @@
-// database.js - startup
 const { MongoClient } = require('mongodb');
 const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('startup');          // your DB name
+const db = client.db('startup');
 
 const userCollection = db.collection('user');
-const voteCollection = db.collection('vote');   // 👈 new collection
+const voteCollection = db.collection('vote'); 
 
-// Test the connection once at startup
 (async function testConnection() {
   try {
     await db.command({ ping: 1 });
@@ -20,8 +18,7 @@ const voteCollection = db.collection('vote');   // 👈 new collection
   }
 })();
 
-// --- User helpers ---
-
+// --- users (auth) ---
 function getUser(email) {
   return userCollection.findOne({ email });
 }
@@ -38,14 +35,9 @@ async function updateUser(user) {
   await userCollection.updateOne({ email: user.email }, { $set: user });
 }
 
-// --- Vote helpers ---
-
+// --- votes ---
 async function addVote(vote) {
-  // vote: { email, category, topic, vote: 'Yes' | 'No', ts?: string }
-  await voteCollection.insertOne({
-    ...vote,
-    ts: vote.ts ?? new Date().toISOString(),
-  });
+  await voteCollection.insertOne(vote);
 }
 
 async function getAllVotes() {

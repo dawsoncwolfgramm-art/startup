@@ -1,7 +1,6 @@
 import React from "react";
 import "./play.css";
 import { useSearchParams } from "react-router-dom";
-import { recordVote, getAggregatedScores } from "../scores/scoreService";
 import { Comments } from "./comments";
 
 export function Play({ userName = "Anonymous" }) {
@@ -25,12 +24,20 @@ export function Play({ userName = "Anonymous" }) {
   const [articles, setArticles] = React.useState([]);
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
-  function refresh() {
-    const rows = getAggregatedScores();
+async function refresh() {
+  try {
+    const res = await fetch(`/api/scores`);
+    if (!res.ok) {
+      setYesPct(0);
+      setNoPct(0);
+      return;
+    }
+    const rows = await res.json();
+
+    // aggregate for THIS topic in THIS category (all users)
     const r = rows.find(
       (x) =>
         x.category === category &&
-        x.name === userName &&
         x.topic === topic
     );
 
@@ -44,17 +51,42 @@ export function Play({ userName = "Anonymous" }) {
     const y = Math.round((r.yes / total) * 100);
     setYesPct(y);
     setNoPct(100 - y);
+  } catch (err) {
+    console.error("Failed to refresh scores", err);
+    setYesPct(0);
+    setNoPct(0);
   }
+}
+
+
+ async function vote(v) {
+  try {
+    const res = await fetch(`/api/vote`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // credentials can stay or be removed since we removed auth on this route
+      body: JSON.stringify({ category, topic, vote: v, name: userName }),
+    });
+
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      console.error('Vote failed:', body.msg || res.statusText);
+      return;
+    }
+
+    await refresh();   // reload percentages from /api/scores
+  } catch (err) {
+    console.error("Failed to submit vote", err);
+  }
+}
+
 
   // include topic so results update when the headline changes
   React.useEffect(() => {
-    refresh();
-  }, [category, userName, topic]);
-
-  function vote(v) {
-    recordVote({ category, topic, vote: v, name: userName });
-    refresh();
-  }
+    (async () => {
+      await refresh();
+    })();
+  }, [category, topic]); // userName removed from filter since we aggregate all users
 
   // fetch up to 3 news items from the API
   async function getNews() {
@@ -208,10 +240,6 @@ export function Play({ userName = "Anonymous" }) {
       </div>
 
       <Comments category={category} topic={topic} userName={userName} />
-
-      <small className="text-muted d-block mt-3">
-        Votes and comments save locally; swap in an API later for real-time.
-      </small>
     </main>
   );
 }

@@ -1,14 +1,29 @@
 import React from 'react';
 import './scores.css';
-import { getAggregatedScores, seedDemoVotes } from "../scores/scoreService";
+
+const API_BASE = ''; // same-origin since we dropped CORS
 
 export function Scores() {
   const [rows, setRows] = React.useState([]);
+  const [error, setError] = React.useState(null);   // ✅ ADD THIS
 
   React.useEffect(() => {
-    seedDemoVotes();
-
-    setRows(getAggregatedScores());
+    async function loadScores() {
+      try {
+        const res = await fetch(`${API_BASE}/api/scores`);
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.msg || 'Failed to load scores');
+        }
+        const data = await res.json();
+        setRows(data);
+        setError(null);                             // ✅ clear previous errors
+      } catch (err) {
+        console.error(err);
+        setError(err.message);                      // ✅ now defined
+      }
+    }
+    loadScores();
   }, []);
 
   return (
@@ -25,7 +40,15 @@ export function Scores() {
             </tr>
           </thead>
           <tbody>
-            {rows.length === 0 && (
+            {error && (
+              <tr>
+                <td colSpan={5} className="text-center text-danger">
+                  {error}
+                </td>
+              </tr>
+            )}
+
+            {!error && rows.length === 0 && (
               <tr>
                 <td colSpan={5} className="text-center">No votes yet</td>
               </tr>
@@ -47,21 +70,13 @@ export function Scores() {
                     <div className="progress vh-30">
                       <div
                         className="progress-bar bg-success"
-                        role="progressbar"
                         style={{ width: `${yesPct}%` }}
-                        aria-valuenow={yesPct}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
                       >
                         {yesPct}%
                       </div>
                       <div
                         className="progress-bar bg-danger"
-                        role="progressbar"
                         style={{ width: `${noPct}%` }}
-                        aria-valuenow={noPct}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
                       >
                         {noPct}%
                       </div>
@@ -73,8 +88,6 @@ export function Scores() {
           </tbody>
         </table>
       </div>
-
-      <p className="text-light mt-3">Votes are stored locally. Hook an API later for real-time.</p>
     </main>
   );
 }
