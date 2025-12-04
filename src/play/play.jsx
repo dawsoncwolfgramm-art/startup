@@ -1,7 +1,7 @@
 import React from "react";
 import "./play.css";
 import { useSearchParams } from "react-router-dom";
-import { Comments } from "./comments";
+import { Comments } from "./Comments";
 
 export function Play({ userName = "Anonymous" }) {
   const [params] = useSearchParams();
