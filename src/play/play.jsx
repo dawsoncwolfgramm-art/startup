@@ -2,6 +2,7 @@ import React from "react";
 import "./play.css";
 import { useSearchParams } from "react-router-dom";
 import { Comments } from "./Comments";
+import { HotEvent, HotTakesNotifier } from "./hotTakesNotifier";
 
 export function Play({ userName = "Anonymous" }) {
   const [params] = useSearchParams();
@@ -24,62 +25,69 @@ export function Play({ userName = "Anonymous" }) {
   const [articles, setArticles] = React.useState([]);
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
-async function refresh() {
-  try {
-    const res = await fetch(`/api/scores`);
-    if (!res.ok) {
+  React.useEffect(() => {
+    HotTakesNotifier.broadcastEvent(userName, HotEvent.Join, { category });
+  }, [userName]); // only once per user mount
+
+  async function refresh() {
+    try {
+      const res = await fetch(`/api/scores`);
+      if (!res.ok) {
+        setYesPct(0);
+        setNoPct(0);
+        return;
+      }
+      const rows = await res.json();
+
+      // aggregate for THIS topic in THIS category (all users)
+      const r = rows.find(
+        (x) => 
+          x.category === category && 
+          x.topic === topic
+      );
+
+      if (!r) {
+        setYesPct(0);
+        setNoPct(0);
+        return;
+      }
+
+      const total = r.yes + r.no || 1;
+      const y = Math.round((r.yes / total) * 100);
+      setYesPct(y);
+      setNoPct(100 - y);
+    } catch (err) {
+      console.error("Failed to refresh scores", err);
       setYesPct(0);
       setNoPct(0);
-      return;
     }
-    const rows = await res.json();
-
-    // aggregate for THIS topic in THIS category (all users)
-    const r = rows.find(
-      (x) =>
-        x.category === category &&
-        x.topic === topic
-    );
-
-    if (!r) {
-      setYesPct(0);
-      setNoPct(0);
-      return;
-    }
-
-    const total = r.yes + r.no || 1;
-    const y = Math.round((r.yes / total) * 100);
-    setYesPct(y);
-    setNoPct(100 - y);
-  } catch (err) {
-    console.error("Failed to refresh scores", err);
-    setYesPct(0);
-    setNoPct(0);
   }
-}
 
+  async function vote(v) {
+    try {
+      const res = await fetch(`/api/vote`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ category, topic, vote: v, name: userName }),
+      });
 
- async function vote(v) {
-  try {
-    const res = await fetch(`/api/vote`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      // credentials can stay or be removed since we removed auth on this route
-      body: JSON.stringify({ category, topic, vote: v, name: userName }),
-    });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        console.error("Vote failed:", body.msg || res.statusText);
+        return;
+      }
 
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
-      console.error('Vote failed:', body.msg || res.statusText);
-      return;
+      HotTakesNotifier.broadcastEvent(userName, HotEvent.Vote, {
+        category,
+        topic,
+        vote: v,
+      });
+
+      await refresh();   // reload percentages from /api/scores
+    } catch (err) {
+      console.error("Failed to submit vote", err);
     }
-
-    await refresh();   // reload percentages from /api/scores
-  } catch (err) {
-    console.error("Failed to submit vote", err);
   }
-}
-
 
   // include topic so results update when the headline changes
   React.useEffect(() => {
@@ -128,7 +136,12 @@ async function refresh() {
 
     setTopic(newTitle);  // voting title
     setNewsDesc(desc);   // description under the title
-  }, [articles, currentIndex]);
+
+    HotTakesNotifier.broadcastEvent(userName, HotEvent.TopicChange, {
+      category,
+      topic: newTitle,
+    });
+  }, [articles, currentIndex, userName, category]);
 
   // Only rotate to the next headline when the user clicks the button
   function handleNewsClick() {
