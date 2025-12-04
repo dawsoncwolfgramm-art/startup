@@ -1,4 +1,5 @@
 import React from "react";
+import { HotEvent, HotTakesNotifier } from "./hotTakesNotifier";
 
 export function Comments({ category, topic, userName = "Anonymous" }) {
   const key = React.useMemo(() => `comments__${category}__${topic}`, [category, topic]);
@@ -19,12 +20,44 @@ export function Comments({ category, topic, userName = "Anonymous" }) {
     e.preventDefault();
     const t = text.trim();
     if (!t) return;
-    save([
-      ...comments,
-      { id: crypto.randomUUID?.() ?? String(Date.now()), by: userName, text: t, ts: Date.now() },
-    ]);
+
+    const newComment = {
+      id: crypto.randomUUID?.() ?? String(Date.now()),
+      by: userName,
+      text: t,
+      ts: Date.now(),
+      category,
+      topic,
+    };
+
+    // Store locally
+    save([...comments, newComment]);
+
+    HotTakesNotifier.broadcastEvent(userName, HotEvent.Comment, newComment);
+
     setText("");
   }
+
+  React.useEffect(() => {
+    function onEvent(event) {
+      if (event.type !== HotEvent.Comment) return;
+      const c = event.value;
+
+      // Only accept comments for this category + topic
+      if (c.category !== category || c.topic !== topic) return;
+
+      // Prevent duplicates
+      setComments((prev) => {
+        if (prev.some((p) => p.id === c.id)) return prev;
+        const next = [...prev, c];
+        localStorage.setItem(key, JSON.stringify(next));
+        return next;
+      });
+    }
+
+    HotTakesNotifier.addHandler(onEvent);
+    return () => HotTakesNotifier.removeHandler(onEvent);
+  }, [category, topic, key]);
 
   return (
     <section className="card mt-4">

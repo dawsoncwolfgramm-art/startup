@@ -174,8 +174,10 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-app.listen(port, () => {
+// Start the HTTP server and keep a reference for WebSocket
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
+// Attach the WebSocket peer proxy
 peerProxy(httpService);
