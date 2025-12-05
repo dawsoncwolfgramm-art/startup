@@ -149,8 +149,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - I created a peerProxy WebSocket server (based on the Simon example) and wired it into my backend in index.js by passing the HTTP server instance to peerProxy(httpService). This lets my backend listen for WebSocket connections on the /ws endpoint, alongside the normal REST /api/... endpoints.
+- [x] **Frontend makes WebSocket connection** - On the frontend I added a hotTakesNotifier.js module (like gameNotifier.js in Simon). In its constructor I build the WebSocket URL from window.location and call new WebSocket(...). This connects the React app to the backend’s /ws endpoint as soon as the page loads.
+- [x] **Data sent over WebSocket connection** - In hotTakesNotifier.js I added a broadcastEvent(from, type, value) function. When the user posts a new comment, the Comments.jsx component calls this function, which serializes the event with JSON.stringify and sends it over the open WebSocket so all connected clients can receive it.
+- [x] **WebSocket data displayed** - The Comments.jsx component also registers a handler with HotTakesNotifier.addHandler(...). When a "comment" event comes in over the WebSocket, the handler checks that the category and topic match the current page, then appends the new comment to React state. That immediately updates the comments list on the screen for all connected users.
+- [x] **Application is fully functional** - The application now supports user auth, topic navigation, voting, and live comments. Votes are stored in MongoDB and fetched through /api/scores to update the percentages on the Play and Scores pages. Comments are saved in localStorage and also broadcast via WebSocket so multiple clients see new comments in real time. Overall, the app works end-to-end with both REST and WebSocket functionality.
